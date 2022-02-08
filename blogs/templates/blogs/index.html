@@ -1,0 +1,18 @@
+{% extends "blogs/base.html" %}
+
+{% block page_head %}
+    <h2>Posts</h2>
+{%endblock page_head%}
+
+{% block content %}
+<p><a href="{% url 'blogs:new_post' %}">Add new post</a></p>
+{% for post in posts %}
+    <div class="card mb-2">
+        <div class="car-body">
+            <h5 class="card-title">{{post}}</h5>
+            <p class="card-text">{{post.text}}</p>
+            <a href="{% url 'blogs:edit_post' post.id %}" class="card-link">Edit</a>
+        </div>
+    </div>
+{% endfor %}
+{% endblock content %}
